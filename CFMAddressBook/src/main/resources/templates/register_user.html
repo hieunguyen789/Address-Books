@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Register User</title>
+</head>
+<body>
+	<div align="center" style="background-color:MediumSeaGreen;margin:auto;
+								width: 40%">
+		<div style="color:red">
+			<p>Creating New User</p>
+		</div>
+		<div>
+			<form action="#" th:action="@{register/save}" th:object="${user}" method="post">
+				<table>
+					<tr>
+						<td>Email:</td>
+						<td><input type="email" th:field="*{email}"/></td>
+						<td th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email Error</td>
+						
+					</tr>
+					
+					<tr>
+						<td>Password:</td>
+						<td><input type="password" th:field="*{password}"/></td>
+						<td th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Password Error</td>
+					</tr>				
+					
+					<tr>
+						<td>
+						
+						<input type="checkbox" th:field="*{role}" id="USER" value="USER" />
+						<label for="USER">USER</label>&nbsp;&nbsp;&nbsp;&nbsp;
+						<input type="checkbox" th:field="*{role}" id="ADMIN" value="ADMIN" />
+						<label for="ADMIN">ADMIN</label>
+						
+						</td>
+					</tr>
+					
+					<tr style="color:blue">
+
+						<td><button type="submit" style="color:blue">save</button></td>
+					</tr>
+					
+				</table>
+			</form>
+		</div>
+	</div>
+
+
+
+
+</body>
+</html>

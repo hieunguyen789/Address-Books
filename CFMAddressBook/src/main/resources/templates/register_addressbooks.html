@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Add New Address Books</title>
+</head>
+<body>
+	<div align="center" style="background-color:grey;margin:auto;
+								width: 40%">
+		<div>
+			<h1>Adding New Address Books</h1>
+		</div>
+		
+		<div>
+			<form th:action="@{save}" th:object="${addressbooks}" method="post">
+				<table>
+					<tr>
+						<td>Name:</td>
+						<td>
+							<input type="text" th:field="*{name}"/>
+						</td>
+						
+						<td th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</td>
+					</tr>
+					<tr>
+						<td>Street:</td>
+						<td>
+							<input type="text" th:field="*{street}"/>
+						</td>
+					</tr>					
+					<tr>
+						<td>City:</td>
+						<td>
+							<input type="text" th:field="*{city}"/>
+						</td>
+					</tr>
+					<tr>
+						<td>State:</td>
+						<td>
+							<input type="text" th:field="*{state}"/>
+						</td>
+					</tr>
+					<tr>
+						<td>Zipcode:</td>
+						<td>
+							<input type="text" th:field="*{zipcode}"/>
+						</td>
+					</tr>
+					<tr>
+						<td>Home Phone:</td>
+						<td>
+							<input type="text" th:field="*{homePhone}"/>
+						</td>
+					</tr>
+					<tr>
+						<td>email:</td>
+						<td>
+							<input type="text" th:field="*{email}"/>
+						</td>
+					</tr>
+					<tr>
+						<td>
+						<button type="submit" style="background-color:blue">save</button>
+						</td>
+					</tr>
+				</table>
+			
+			</form>
+		
+		</div>
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Most Living City</title>
+</head>
+<body>
+	
+	<div align="center">
+		<p><b>Most Living State</b></p>
+		
+		<div>
+			<form th:action="@{list_all_addressbooks}">
+			<button type="submit">Back To Address Books</button>
+			</form>
+		</div>
+	
+		<table border="1">
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Street</th>
+					<th>City</th>
+					<th>State</th>
+					<th>Zipcode</th>
+					<th>Home Phone</th>
+					<th>Email</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="addressbooks : ${listAllAddressBooks}" >
+				<td th:text="${addressbooks.name}">Name</td>
+				<td th:text="${addressbooks.street}">Street</td>
+				<td th:text="${addressbooks.city}">City</td>
+				<td th:text="${addressbooks.state}">State</td>
+				<td th:text="${addressbooks.zipcode}">Zipcode</td>
+				<td th:text="${addressbooks.homePhone}">Home Phone</td>
+				<td th:text="${addressbooks.email}">Email</td>
+				</tr>
+				
+			</tbody>
+		</table>
+	</div>
+	
+</body>
+</html>

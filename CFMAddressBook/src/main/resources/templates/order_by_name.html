@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Display All Address Books</title>
+</head>
+<body>
+	<div align="center">
+		<div>
+			<h1>CFM Address Books</h1>
+		</div>
+		
+		<div>
+			<div th:action="@{/api/order_by_name}">
+				<button type="submit">Order By Name</button>
+			</div>
+			
+			<form th:action="@{search_addressbooks_by_name} " method="get">
+				<input type="text" th:name ="name"/>
+				<button type="submit">search</button>
+			</form>
+		</div>
+		
+		
+		
+		<div>
+		
+		<table border="1">
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Street</th>
+					<th>City</th>
+					<th>State</th>
+					<th>Zipcode</th>
+					<th>Home Phone</th>
+					<th>Email</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="addressbooks : ${listAllAddressBooks}" >
+				<td th:text="${addressbooks.name}"></td>
+				<td th:text="${addressbooks.street}">Street</td>
+				<td th:text="${addressbooks.city}">City</td>
+				<td th:text="${addressbooks.state}">State</td>
+				<td th:text="${addressbooks.zipcode}">Zipcode</td>
+				<td th:text="${addressbooks.homePhone}">Home Phone</td>
+				<td th:text="${addressbooks.email}">Email</td>
+				</tr>
+				
+			</tbody>
+		</table>
+		</div>
+
+	</div>
+
+</body>
+</html>

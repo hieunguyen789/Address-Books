@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Display All Address Books</title>
+</head>
+<body>
+	<div align="center">
+		<div>
+			<h1>CFM Address Books</h1>
+		</div>
+		
+		<div>
+
+			<a href="register_addressbooks">Add New Address</a>
+
+		</div>
+		
+		<div>
+		<table border="1">
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Street</th>
+					<th>City</th>
+					<th>State</th>
+					<th>Zipcode</th>
+					<th>Home Phone</th>
+					<th>Email</th>
+					<th>Action</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="addressbooks : ${listAllAddressBooks}" >
+				<td th:text="${addressbooks.name}">Name</td>
+				<td th:text="${addressbooks.street}">Street</td>
+				<td th:text="${addressbooks.city}">City</td>
+				<td th:text="${addressbooks.state}">State</td>
+				<td th:text="${addressbooks.zipcode}">Zipcode</td>
+				<td th:text="${addressbooks.homePhone}">Home Phone</td>
+				<td th:text="${addressbooks.email}">Email</td>
+				
+				<td>
+					
+					<a th:href="'edit_addressbooks/' + ${addressbooks.id}">edit</a>
+					
+					&nbsp;&nbsp;&nbsp;
+					
+					<a th:href="'delete_addressbooks/' + ${addressbooks.id}">delete</a>
+				</td>
+				</tr>
+				
+			</tbody>
+		</table>
+		
+		<div>
+		<a href="/api">Back To Home Page</a>
+		</div>
+		
+		</div>
+	</div>
+
+</body>
+</html>
